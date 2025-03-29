@@ -1,0 +1,35 @@
+[gd_scene load_steps=7 format=3 uid="uid://vfnbgrqobgvq"]
+
+[ext_resource type="Script" uid="uid://bwub72702lftb" path="res://enemies/enemy.gd" id="1_3t1x0"]
+[ext_resource type="Script" uid="uid://ctlo7lx8sccru" path="res://components/stats_component.gd" id="1_07tka"]
+[ext_resource type="Script" uid="uid://bmbitwxq1fye" path="res://components/move_component.gd" id="2_3t1x0"]
+[ext_resource type="Script" uid="uid://bqcr28l6o4ihp" path="res://components/scale_component.gd" id="3_epsnb"]
+[ext_resource type="Script" uid="uid://3yrp1ff6x5wm" path="res://components/flash_component.gd" id="4_4w5fm"]
+[ext_resource type="Script" uid="uid://dwbq1qyrgjgf0" path="res://components/shake_component.gd" id="5_uba7a"]
+
+[node name="Enemy" type="Node2D"]
+script = ExtResource("1_3t1x0")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+
+[node name="StatsComponent" type="Node" parent="."]
+script = ExtResource("1_07tka")
+metadata/_custom_type_script = "uid://ctlo7lx8sccru"
+
+[node name="MoveComponent" type="Node" parent="."]
+script = ExtResource("2_3t1x0")
+metadata/_custom_type_script = "uid://bmbitwxq1fye"
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="ScaleComponent" type="Node" parent="."]
+script = ExtResource("3_epsnb")
+metadata/_custom_type_script = "uid://bqcr28l6o4ihp"
+
+[node name="FlashComponent" type="Node" parent="."]
+script = ExtResource("4_4w5fm")
+metadata/_custom_type_script = "uid://3yrp1ff6x5wm"
+
+[node name="ShakeComponent" type="Node" parent="."]
+script = ExtResource("5_uba7a")
+metadata/_custom_type_script = "uid://dwbq1qyrgjgf0"

@@ -1,6 +1,5 @@
 # Godot 4+ specific ignores
 .godot/
-/android/
 Space Shooter.apk.idsig
 Space Shooter.apk.zip
 /build/Space Shooter.apk

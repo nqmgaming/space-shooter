@@ -1,2 +1,4 @@
 # Normalize EOL for all files that Git considers text files.
 * text=auto eol=lf
+/android/build/libs/debug/godot-lib.template_debug.aar filter=lfs diff=lfs merge=lfs -text
+/android/build/libs/release/godot-lib.template_release.aar filter=lfs diff=lfs merge=lfs -text
