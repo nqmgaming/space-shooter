@@ -16,20 +16,24 @@ script = ExtResource("1_3t1x0")
 script = ExtResource("1_07tka")
 metadata/_custom_type_script = "uid://ctlo7lx8sccru"
 
-[node name="MoveComponent" type="Node" parent="."]
+[node name="MoveComponent" type="Node" parent="." node_paths=PackedStringArray("actor")]
 script = ExtResource("2_3t1x0")
+actor = NodePath("..")
 metadata/_custom_type_script = "uid://bmbitwxq1fye"
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 
-[node name="ScaleComponent" type="Node" parent="."]
+[node name="ScaleComponent" type="Node" parent="." node_paths=PackedStringArray("sprite")]
 script = ExtResource("3_epsnb")
+sprite = NodePath("../AnimatedSprite2D")
 metadata/_custom_type_script = "uid://bqcr28l6o4ihp"
 
-[node name="FlashComponent" type="Node" parent="."]
+[node name="FlashComponent" type="Node" parent="." node_paths=PackedStringArray("sprite")]
 script = ExtResource("4_4w5fm")
+sprite = NodePath("../AnimatedSprite2D")
 metadata/_custom_type_script = "uid://3yrp1ff6x5wm"
 
-[node name="ShakeComponent" type="Node" parent="."]
+[node name="ShakeComponent" type="Node" parent="." node_paths=PackedStringArray("node")]
 script = ExtResource("5_uba7a")
+node = NodePath("../AnimatedSprite2D")
 metadata/_custom_type_script = "uid://dwbq1qyrgjgf0"
