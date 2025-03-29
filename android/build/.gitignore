@@ -1,5 +1,0 @@
-# Godot 4+ specific ignores
-/build
-.gradle
-.idea
-/libs
