@@ -160,6 +160,7 @@ scene = ExtResource("8_le0bn")
 metadata/_custom_type_script = "uid://d1yghi7tgu1kn"
 
 [node name="FireRateTimer" type="Timer" parent="."]
+wait_time = 0.3
 autostart = true
 
 [node name="ScaleComponent" type="Node" parent="." node_paths=PackedStringArray("sprite")]
