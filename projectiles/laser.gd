@@ -9,7 +9,6 @@ func _ready() -> void:
 	scale_component.tween_scale()
 	flash_component.flash()
 	visible_on_screen_notifier_2d.screen_exited.connect(on_screen_exited)
-	move_component.velocity = Vector2(0, -200) # Move upward with speed 200
 	
 func on_screen_exited() -> void:
 	print("Laser exited screen - destroying")
