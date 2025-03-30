@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://cd4kkl1s18v0y"]
+[gd_scene load_steps=7 format=3 uid="uid://cd4kkl1s18v0y"]
 
 [ext_resource type="Script" uid="uid://c6085txamjwjf" path="res://menus/game_over.gd" id="1_a6cs8"]
 [ext_resource type="PackedScene" uid="uid://cj2bfoj8isuj1" path="res://effects/space_background.tscn" id="1_v8xbx"]
 [ext_resource type="LabelSettings" uid="uid://kebs0jx1xlrr" path="res://fonts/title_label_setting.tres" id="2_hl86a"]
+[ext_resource type="Resource" uid="uid://bfkadquef4i33" path="res://game_stats.tres" id="2_kwtkc"]
 [ext_resource type="LabelSettings" uid="uid://25bik4tb1h2x" path="res://menus/default_label_setting.tres" id="3_a6cs8"]
 [ext_resource type="AudioStream" uid="uid://dhr1bj2iypj3y" path="res://sounds/music.ogg" id="4_kwtkc"]
 
@@ -14,6 +15,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_a6cs8")
+game_stats = ExtResource("2_kwtkc")
 
 [node name="SpaceBackground" parent="." instance=ExtResource("1_v8xbx")]
 
@@ -33,6 +35,46 @@ layout_mode = 2
 text = "Game Over"
 label_settings = ExtResource("2_hl86a")
 horizontal_alignment = 1
+
+[node name="Space8" type="Control" parent="CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 8)
+layout_mode = 2
+
+[node name="ScoreHBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="ScoreLabel" type="Label" parent="CenterContainer/VBoxContainer/ScoreHBoxContainer"]
+layout_mode = 2
+text = "Score:"
+label_settings = ExtResource("3_a6cs8")
+
+[node name="ScoreValue" type="Label" parent="CenterContainer/VBoxContainer/ScoreHBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "0"
+label_settings = ExtResource("3_a6cs8")
+horizontal_alignment = 2
+
+[node name="HighScoreHBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HighScoreLabel" type="Label" parent="CenterContainer/VBoxContainer/HighScoreHBoxContainer"]
+layout_mode = 2
+text = "Hight Score:"
+label_settings = ExtResource("3_a6cs8")
+
+[node name="HighScoreValue" type="Label" parent="CenterContainer/VBoxContainer/HighScoreHBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "0"
+label_settings = ExtResource("3_a6cs8")
+horizontal_alignment = 2
+
+[node name="Space" type="Control" parent="CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
 
 [node name="StartLabel" type="Label" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2

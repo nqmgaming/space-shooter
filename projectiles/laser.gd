@@ -13,7 +13,6 @@ func _ready() -> void:
 	hitbox_component.hit_hurtbox.connect(queue_free.unbind(1))
 	
 func on_screen_exited() -> void:
-	print("Laser exited screen - destroying")
 	queue_free()
 	
 func _process(_delta: float) -> void:
@@ -21,5 +20,4 @@ func _process(_delta: float) -> void:
 	var screen_size = get_viewport_rect().size
 	if global_position.y < -50 or global_position.y > screen_size.y + 50 or \
 	   global_position.x < -50 or global_position.x > screen_size.x + 50:
-		print("Laser manually detected outside screen - destroying")
 		queue_free()

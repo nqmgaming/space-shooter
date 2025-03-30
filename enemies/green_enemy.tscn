@@ -42,7 +42,9 @@ radius = 8.0
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_yuya6")
 animation = &"move"
-frame_progress = 0.429594
+autoplay = "move"
+frame = 2
+frame_progress = 0.400635
 
 [node name="StatsComponent" parent="." index="1"]
 health = 3
@@ -59,3 +61,6 @@ shape = SubResource("CircleShape2D_b0nf3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" index="0"]
 shape = SubResource("CircleShape2D_6rcqd")
+
+[node name="ScoreComponent" parent="." index="12"]
+score = 5

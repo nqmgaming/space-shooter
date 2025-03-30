@@ -1,0 +1,129 @@
+[gd_scene load_steps=15 format=3 uid="uid://bla7ygjrkkmq6"]
+
+[ext_resource type="Script" uid="uid://biwdmojjavpkj" path="res://projectiles/pink_enemy_projectile.gd" id="1_7ytmt"]
+[ext_resource type="Script" uid="uid://bmbitwxq1fye" path="res://components/move_component.gd" id="1_fwfae"]
+[ext_resource type="Script" uid="uid://bqcr28l6o4ihp" path="res://components/scale_component.gd" id="2_7ytmt"]
+[ext_resource type="Texture2D" uid="uid://52hk6rkpif5s" path="res://assets/pink_enemy_projectile.png" id="3_04bmb"]
+[ext_resource type="Script" uid="uid://brxby8b8adhb7" path="res://components/hitbox_component.gd" id="4_defgk"]
+
+[sub_resource type="Animation" id="Animation_vrxfw"]
+resource_name = "ocillate"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Anchor:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-4, 0), Vector2(4, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_cud14"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Anchor:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6gstc"]
+_data = {
+&"RESET": SubResource("Animation_cud14"),
+&"ocillate": SubResource("Animation_vrxfw")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7cvuu"]
+atlas = ExtResource("3_04bmb")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n82xx"]
+atlas = ExtResource("3_04bmb")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xswd2"]
+atlas = ExtResource("3_04bmb")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1o41m"]
+atlas = ExtResource("3_04bmb")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vwxng"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7cvuu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n82xx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xswd2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1o41m")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_iybs6"]
+radius = 4.0
+
+[node name="PinkEnemyProjectile" type="Node2D"]
+script = ExtResource("1_7ytmt")
+
+[node name="MoveComponent" type="Node" parent="." node_paths=PackedStringArray("actor")]
+script = ExtResource("1_fwfae")
+actor = NodePath("..")
+velocity = Vector2(0, 30)
+metadata/_custom_type_script = "uid://bmbitwxq1fye"
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(-1.19209e-07, -2.98023e-07)
+scale = Vector2(0.3, 0.3)
+
+[node name="ScaleComponent" type="Node" parent="." node_paths=PackedStringArray("sprite")]
+script = ExtResource("2_7ytmt")
+sprite = NodePath("../Anchor/AnimatedSprite2D")
+scale_amount = Vector2(2, 2)
+scale_duration = 1.0
+metadata/_custom_type_script = "uid://bqcr28l6o4ihp"
+
+[node name="YellowEnemySpawnTimer" type="Timer" parent="ScaleComponent"]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_6gstc")
+}
+autoplay = "ocillate"
+
+[node name="Anchor" type="Node2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Anchor"]
+sprite_frames = SubResource("SpriteFrames_vwxng")
+autoplay = "default"
+frame_progress = 0.269602
+
+[node name="HitboxComponent" type="Area2D" parent="Anchor"]
+collision_layer = 0
+script = ExtResource("4_defgk")
+metadata/_custom_type_script = "uid://brxby8b8adhb7"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Anchor/HitboxComponent"]
+shape = SubResource("CircleShape2D_iybs6")
