@@ -1,10 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://bc7sdid758oi"]
+[gd_scene load_steps=5 format=3 uid="uid://bc7sdid758oi"]
 
 [ext_resource type="PackedScene" uid="uid://cj2bfoj8isuj1" path="res://effects/space_background.tscn" id="1_85u52"]
 [ext_resource type="Script" uid="uid://dl77xdynkqk0g" path="res://menus/menu.gd" id="1_jayei"]
 [ext_resource type="LabelSettings" uid="uid://kebs0jx1xlrr" path="res://fonts/title_label_setting.tres" id="2_y8e4h"]
 [ext_resource type="LabelSettings" uid="uid://25bik4tb1h2x" path="res://menus/default_label_setting.tres" id="3_hl3ms"]
-[ext_resource type="AudioStream" uid="uid://dhr1bj2iypj3y" path="res://sounds/music.ogg" id="4_2d4ws"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -39,8 +38,3 @@ layout_mode = 2
 text = "Press 'space' to play"
 label_settings = ExtResource("3_hl3ms")
 horizontal_alignment = 1
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_2d4ws")
-autoplay = true
-parameters/looping = true

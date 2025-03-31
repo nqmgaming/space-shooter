@@ -1,11 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://cd4kkl1s18v0y"]
+[gd_scene load_steps=6 format=3 uid="uid://cd4kkl1s18v0y"]
 
 [ext_resource type="Script" uid="uid://c6085txamjwjf" path="res://menus/game_over.gd" id="1_a6cs8"]
 [ext_resource type="PackedScene" uid="uid://cj2bfoj8isuj1" path="res://effects/space_background.tscn" id="1_v8xbx"]
 [ext_resource type="LabelSettings" uid="uid://kebs0jx1xlrr" path="res://fonts/title_label_setting.tres" id="2_hl86a"]
 [ext_resource type="Resource" uid="uid://bfkadquef4i33" path="res://game_stats.tres" id="2_kwtkc"]
 [ext_resource type="LabelSettings" uid="uid://25bik4tb1h2x" path="res://menus/default_label_setting.tres" id="3_a6cs8"]
-[ext_resource type="AudioStream" uid="uid://dhr1bj2iypj3y" path="res://sounds/music.ogg" id="4_kwtkc"]
 
 [node name="GameOver" type="Control"]
 layout_mode = 3
@@ -82,8 +81,3 @@ text = "Press 'space' to return to
 the start menu"
 label_settings = ExtResource("3_a6cs8")
 horizontal_alignment = 1
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_kwtkc")
-autoplay = true
-parameters/looping = true

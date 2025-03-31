@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://vfnbgrqobgvq"]
+[gd_scene load_steps=17 format=3 uid="uid://vfnbgrqobgvq"]
 
 [ext_resource type="Script" uid="uid://bwub72702lftb" path="res://enemies/enemy.gd" id="1_3t1x0"]
 [ext_resource type="Script" uid="uid://ctlo7lx8sccru" path="res://components/stats_component.gd" id="1_07tka"]
@@ -14,6 +14,8 @@
 [ext_resource type="Script" uid="uid://du1srj113srdb" path="res://components/destroyed_component.gd" id="12_ccbdt"]
 [ext_resource type="Script" uid="uid://gktsdqpairep" path="res://components/score_component.gd" id="13_mgey2"]
 [ext_resource type="Resource" uid="uid://bfkadquef4i33" path="res://game_stats.tres" id="14_cjbay"]
+[ext_resource type="AudioStream" uid="uid://c0cx7wgpfyurl" path="res://sounds/hit_sound.wav" id="15_8cidi"]
+[ext_resource type="Script" uid="uid://ckt356wbplre" path="res://components/variable_pitch_audio_stream_player.gd" id="16_grymm"]
 
 [node name="Enemy" type="Node2D"]
 script = ExtResource("1_3t1x0")
@@ -79,3 +81,10 @@ metadata/_custom_type_script = "uid://du1srj113srdb"
 script = ExtResource("13_mgey2")
 game_stats = ExtResource("14_cjbay")
 metadata/_custom_type_script = "uid://gktsdqpairep"
+
+[node name="VariablePitchAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_8cidi")
+volume_db = 5.0
+bus = &"Sound"
+script = ExtResource("16_grymm")
+metadata/_custom_type_script = "uid://ckt356wbplre"
